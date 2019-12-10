@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int *maps(const int *arr, size_t size)
+{
+	int i;
+	int *DoubledArr;
+	DoubledArr = arr;
+
+	DoubledArr = (int *)malloc(size * sizeof(int));
+
+	for ( i = 0; i < size; i++)
+	{
+		DoubledArr[i] = 2 * (*(arr + i));
+	}
+	return DoubledArr;
+}
+
+int main()
+{
+	int size = 5;
+	int Arr[] = { 1,2,3,4,5,6 };
+	int *Result;
+	//Arr = (int *)malloc(size*sizeof(int));
+
+	/*printf("Introduce array elements: ");
+	for (int i = 0; i < size; i++)
+	{
+		printf("\nArr[%d]: ",i+1);
+		scanf("%d",Arr+i);
+	}*/
+
+	Result=maps(Arr,size);
+
+
+	printf("\nArray elements: ");
+	for (int i=0;i<size;i++)
+	{
+		printf("\nArr[%d]:%d",i+1,*Result+i);
+	}
+	
+	getchar();
+	getchar();
+	return 0;
+}
